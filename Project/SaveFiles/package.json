@@ -1,0 +1,36 @@
+{
+  "name": "webpage",
+  "version": "1.0.0",
+  "description": "Digital Office WebPage by James",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "James Bastida",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-ejs-layouts": "^2.5.0",
+    "express-handlebars": "^3.0.2",
+    "express-session": "^1.16.1",
+    "gridfs-stream": "^1.1.1",
+    "method-override": "^3.0.0",
+    "moment": "^2.24.0",
+    "mongoose": "^5.5.7",
+    "multer": "^1.4.1",
+    "multer-gridfs-storage": "^3.2.3",
+    "node-rsa": "^1.0.5",
+    "nodemailer": "^6.1.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "stream-to-array": "^2.3.0",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Digital Office</title>
+    <link href="https://fonts.googleapis.com/css?family=Krub" rel="stylesheet">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.0/normalize.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Krub:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styledani.css">
+    <script type='text/javascript'>
+      function addFields(){
+          // Number of inputs to create
+          let number = document.getElementById("noparticipants").value;
+          // Container <div> where dynamic content will be placed
+          let container = document.getElementById("participants_container");
+          // Clear previous contents of the container
+          while (container.hasChildNodes()) 
+          {
+              container.removeChild(container.lastChild);
+          }
+          for (i = 0; i < number; i++)
+          {
+              // Append a node with a random text
+              //container.appendChild(document.createTextNode("Member " + (i+1)));
+              // Create an <input> element, set its type and name attributes
+              let input = document.createElement("input");
+              input.type = "text";
+              input.name = "participant" + i;
+              input.placeholder = "Member name...";
+              container.appendChild(input);
+              // Append a line break 
+              container.appendChild(document.createElement("br"));
+          }
+      }
+    </script>
+  </head>
+  <body>
+      <header class="site-header">
+          <nav>
+            <!--Aqui va el menu!-->
+            <div class="iconomenu">
+                <a href="/users/login" style="color:black;">
+                  <i class="fas fa-door-open"></i>
+                </a>
+            </div>
+          </nav>
+        </header>
+    <div class="hero">
+      <div class="contenedor-hero">
+        <h1>Digital Office</h1>
+      </div>
+    </div>
+
+    <div style="width:80%;margin:auto;margin-top:3rem;">
+      <% include ./partials/messages %>
+      <% if(typeof successMsg != 'undefined') { %>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <%= successMsg %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <% } %>
+    
+    </div>
+
+    <% if(typeUser === 'CEO') { %>
+    <div class="contenedor">
+      <div class="ceo">
+        <h2>CEO</h2>
+        <div class="contenedor-botones">
+          <div class="boton">
+            <form action="/users/upload" method="POST" enctype="multipart/form-data">
+                <div class="form-group" style="width:80%; margin-left: 3rem;">
+                  <input type="text" id="noparticipants" class="form-control" name="noparticipants" value="" placeholder="Enter number of participants...">
+                </div>
+                <div class="form-group" style="width:80%; margin-left: 3rem;">
+                  <a href="#" class="form-control" id="addparticipants" aria-describedby="emailHelp" onclick="addFields()" style="color:#fff;text-decoration: none;text-transform: uppercase;font-size: 16px;margin-bottom:1rem;background-color:#3D4752;padding:0.5rem;">Add Participants</a>
+                  <small id="emailHelp" class="form-text form-muted">(Max. 10 participants)</small>
+                </div>
+                <div class="" id="participants_container"></div>
+                <div class="custom-file mb-1 mt-4" style="margin-left:4rem; width:60%;">
+                    <input type="file" name="file" id="file" class="custom-file-input"> 
+                    <label for="file" class="custom-file-label">Upload a Minute</label>
+                </div>
+                <input type="submit" value="Submit" class="btn btn-primary btn-block">
+            </form>
+          </div>
+          <div class="boton">
+            <h3>Cipher Minute</h3>
+            <a href="/users/cipherminute" style="color:black;">
+              <div class="iconos">
+                  <i class="fab fa-expeditedssl"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% } %>
+
+    <div class="contenedor">
+      <div class="ceo">
+        <h2>Users</h2>
+        <div class="contenedor-botones">
+          <div class="boton">
+            <h3>Sign Minute</h3>
+            <div class="iconos">
+              <a href="/users/signminute" style="color:black;"">
+              <i class="fas fa-file-signature"></i>
+              </a>
+            </div>
+          </div>
+          <div class="boton">
+            <h3>Memorandum</h3>
+            <a href="/users/memo" style="color:black;">
+              <div class="iconos">
+              <i class="far fa-calendar-minus"></i>
+              </div>
+            </a>
+          </div>
+          <div class="boton">
+            <h3>Confidential Memo</h3>
+            <a href="/users/confidentmemo" style="color:black;">
+              <div class="iconos">
+              <i class="fas fa-user-secret"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contenedor">
+      <div class="ceo">
+        <h2>Users</h2>
+        <div class="contenedor-botones">
+          <div class="boton">
+            <h3>View Minutes</h3>
+            <a href="/users/showminutes" style="color:black;">
+              <div class="iconos">
+                  <i class="fas fa-eye"></i>
+              </div>
+            </a>
+          </div>
+          <div class="boton">
+            <h3>View Memos</h3>
+            <a href="/users/showmemos" style="color:black;">
+              <div class="iconos">
+                  <i class="fas fa-eye"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

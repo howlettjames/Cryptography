@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Memorandum Confidencial</title>
+  <link href="https://fonts.googleapis.com/css?family=Krub" rel="stylesheet">
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.0/normalize.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Krub:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <!--Aqui va el menu!-->
+      <div class="iconomenu">
+          <a href="index.html" style="color:black;">
+            <i class="far fa-compass"></i>
+          </a>
+      </div>
+    </nav>
+  </header>
+  <div class="hero">
+    <div class="contenedor-hero">
+      <h1>Memorandum</h1>
+    </div>
+  </div>
+
+  <div class="contenedor">
+    <h3>Usuarios</h3>
+  <!--
+    <div class="lista">
+      <select name="receptor" id="receptor" size="2">
+        <option value="1"><i class="fas fa-user"></i>&nbsp;&nbsp;James</option>
+        <option value="2"><i class="fas fa-user"></i>&nbsp;&nbsp;Daniel</option>
+        <option value="3"><i class="fas fa-user"></i>&nbsp;&nbsp;Wittingham</option>
+      </select>
+    </div>
+    --->
+    <div class="lista">
+      <ul>
+        <li>
+          <div class="usuario">
+            <i class="fas fa-user"></i>&nbsp;&nbsp;James
+          </div>
+        </li>
+        <li>
+          <div class="usuario">
+            <i class="fas fa-user"></i>&nbsp;&nbsp;Daniel
+          </div>
+        </li>
+        <li>
+          <div class="usuario">
+            <i class="fas fa-user"></i>&nbsp;&nbsp;Wittingham
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="contenedor">
+    <textarea placeholder="Memorandum" rows="20"
+     name="comment[text]" id="comment_text" cols="40" class="ui-autocomplete-input"
+     autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></textarea>
+     <p><input type="submit" value="Enviar"></p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Digital Office secure file transfering">
+    <meta name="keywords" content="cryptography, secure file transfer, rsa, aes">
+    <meta name="author" content="Jaime Bastida, Daniel Solorio, Fernando Wittingham">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Digital Office | Create Account</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><span class="highlight">Digital</span> Office</h1>
+        </div>
+    </header>
+
+    <section id="register">
+        <div class="dark">
+            <h2 class="highlight">Create your Digital Office Account</h2>
+            <form action="/api/members" method="POST" class="registry" action="">
+                <div class="inputL">
+                    <label>First Name</label><br>
+                    <input type="text" name="firstname" placeholder="First Name...">
+                </div>
+                <div class="inputL">
+                    <label>Last Name</label><br>
+                    <input type="text" name="lastname" placeholder="Last Name...">
+                </div>
+                <div class="inputL">
+                    <label>User Name</label><br>
+                    <input type="text" name="username" placeholder="Username...">
+                </div>
+                <div class="inputL">
+                    <label>Password</label><br>
+                    <input type="password" name="password" placeholder="Password...">
+                </div>
+                <div class="inputL">
+                    <label>Confirm Password</label><br>
+                    <input type="password" name="passwordconfirm" placeholder="Confirm...">
+                </div>
+                <div class="inputL">
+                    <label>Public Key</label><br>
+                    <input type="text" name="publickey" placeholder="Public Key...">
+                </div>
+                <div class="inputL">
+                    <label>Email</label><br>
+                    <input type="email" name="email" placeholder="smh@mail.com">
+                </div>
+                <input type="submit" value="Send" class="button_1">
+            </form>
+        </div>  
+    </section>
+
+    <footer>
+        <p>Kessler Digital Office, Copyrigth &copy; 2019</p>
+    </footer>
+</body>
+</html>

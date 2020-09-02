@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Memorandum</title>
+  <link href="https://fonts.googleapis.com/css?family=Krub" rel="stylesheet">
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.0/normalize.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Krub:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styledani.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <!--Aqui va el menu!-->
+      <div class="iconomenu">
+          <a href="/users/home" style="color:black;">
+            <i class="far fa-compass"></i>
+          </a>
+      </div>
+    </nav>
+  </header>
+  <div class="hero">
+    <div class="contenedor-hero">
+      <h1>Memorandum</h1>
+    </div>
+  </div>
+
+  <div style="width:80%;margin:auto;margin-top:3rem;">
+    <% include ./partials/messages %>
+  </div>
+
+  <div class="contenedor">
+    <h3>Users</h3>
+    <div class="contenedor">
+      <div class="lista" id="contact">
+        <ul>
+          <% if(typeof users != 'undefined') { %>
+            <% users.forEach(function(user) { %> 
+              <div class="usuario">
+                <li><i class="fas fa-user"></i>&nbsp;&nbsp;<%= user.firstname %></li>      
+              </div>
+            <% }); %>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="contenedor" style="display: none;" id="hide1">
+    <form action="/users/memo" method="POST">
+      <input type="hidden" name="usernamereceiver" id="usernamefield" value="">
+      <input type="text" name="subject" placeholder="Subject...">
+      <textarea placeholder="Memorandum" rows="20"
+      name="memorandum" id="comment_text" cols="40" class="ui-autocomplete-input"
+      autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></textarea>
+      <textarea placeholder="Signature..." rows="20" name="privatekey" cols="40"></textarea>
+      <p><input type="submit" value="Send"></p>
+    </form>
+  </div>
+  <script src="/js/funciones.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sign Minute</title>
+  <link href="https://fonts.googleapis.com/css?family=Krub" rel="stylesheet">
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.0/normalize.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Krub:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styledani.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav>
+      <!--Aqui va el menu!-->
+      <div class="iconomenu">
+          <a href="/users/home" style="color:black;">
+            <i class="far fa-compass"></i>
+          </a>
+      </div>
+    </nav>
+  </header>
+  <div class="hero">
+    <div class="contenedor-hero">
+      <h1>Sign Minute</h1>
+    </div>
+  </div>
+
+  <div style="width:80%;margin:auto;margin-top:3rem;">
+    <% if(typeof errorUserMsg != 'undefined') { %>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <%= errorUserMsg %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+  <% } %>
+
+  <% if(files){ %>
+    <div class="collection contenedor">
+      <% files.forEach(function(file) { %>
+        <div class="card card-body mt-3" style="margin:auto;">
+          <img class="card-img-top" src="/img/word.png" alt="Word Image">
+          <%= file.filename %>
+          <form method="POST" action="/users/signminute/">
+              <% if(file.available && !file.hasSigned){ %>
+                <!-- <input type="text" name="key" placeholder="Private Key..."> -->
+                <textarea class="form-control" placeholder="Private Key..." rows="10" name="key"></textarea>
+                <input type="hidden" name="docname" value="<%= file.filename %>">
+                <button class="btn btn-primary btn-block mt-4">SIGN</button>
+              <% } else if(!file.available) {  %>
+                <textarea class="form-control" placeholder="Private Key..." rows="10" name="key" disabled>You are not allowed to sign this Minute</textarea>
+                <input type="hidden" name="docname" value="<%= file.filename %>" disabled>
+                <button class="btn btn-primary btn-block mt-4" disabled>SIGN</button>
+              <% } else if(!file.hasSigned) {  %>
+                <textarea class="form-control" placeholder="Private Key..." rows="10" name="key" disabled>You have already signed this Minute</textarea>
+                <input type="hidden" name="docname" value="<%= file.filename %>" disabled>
+                <button class="btn btn-primary btn-block mt-4" disabled>SIGN</button>
+              <% } %>
+          </form>
+        </div>
+      <% }) %>
+    </div>
+    <% } else {  %>
+      <div style="width:80%;margin:auto;margin-top:3rem;">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          There are no files to show
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    <% } %>
+  
+</body>
+</html>
