@@ -28,4 +28,3 @@ Some of the topics studied were:
 * RSA.
 
 * Digital Signature Algorithm.
-

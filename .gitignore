@@ -3,3 +3,5 @@
 *.mod
 *.mod.c
 *.cmd
+Project/WebPage/node_modules
+Project/WebPage/config/keys.js
